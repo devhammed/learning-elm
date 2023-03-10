@@ -1,4 +1,4 @@
-module Form exposing (Model, Msg, init, main, update, view)
+module InputField exposing (Model, Msg, init, main, update, view)
 
 import Browser
 import Html exposing (Html, div, input, text)
