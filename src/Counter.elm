@@ -11,12 +11,13 @@ import Html.Events exposing (onClick)
 
 
 type alias Model =
-    Int
+    { count : Int
+    }
 
 
 init : Model
 init =
-    0
+    Model 0
 
 
 
@@ -32,10 +33,10 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            model + 1
+            { model | count = model.count + 1 }
 
         Decrement ->
-            model - 1
+            { model | count = model.count - 1 }
 
 
 
@@ -52,7 +53,7 @@ view model =
         , style "padding" "0 45vw"
         ]
         [ button [ onClick Decrement ] [ text "-" ]
-        , div [ style "font-size" "30px" ] [ text (String.fromInt model) ]
+        , div [ style "font-size" "30px" ] [ text (String.fromInt model.count) ]
         , button [ onClick Increment ] [ text "+" ]
         ]
 
