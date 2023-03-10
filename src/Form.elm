@@ -66,12 +66,12 @@ view model =
         ]
 
 
-viewInput : String -> String -> String -> (String -> msg) -> Html msg
+viewInput : String -> String -> String -> (String -> Msg) -> Html Msg
 viewInput t p v toMsg =
     input [ type_ t, placeholder p, value v, onInput toMsg, style "margin-bottom" "16px" ] []
 
 
-viewValidation : Model -> Html msg
+viewValidation : Model -> Html Msg
 viewValidation model =
     if model.password == model.passwordAgain then
         div [ style "color" "green" ] [ text "OK" ]
@@ -84,5 +84,6 @@ viewValidation model =
 -- MAIN
 
 
+main : Program () Model Msg
 main =
     Browser.sandbox { init = init, update = update, view = view }
